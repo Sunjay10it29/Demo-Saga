@@ -1,0 +1,31 @@
+{
+  "name": "nodeapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "client": "cd client && yarn install && yarn start",
+    "server": "node ./bin/www",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "concurrently": "^5.2.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongodb": "^3.5.9",
+    "morgan": "~1.9.1",
+    "react-animation": "^1.2.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-spinners": "^0.9.0",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "repl": "^0.1.3",
+    "request": "^2.88.2"
+  }
+}
