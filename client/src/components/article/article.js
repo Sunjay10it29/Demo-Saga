@@ -1,0 +1,91 @@
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { Container } from "@material-ui/core";
+import * as img from "../../assets/No_image_3x4.png";
+import stylesS from "./article.module.css";
+
+const useStyles = makeStyles({
+  
+  card: {
+    // maxWidth: "100%",
+    backgroundColor: "#E8E8E8",
+    width: "16rem",
+    height: "auto"
+  },
+  media: {
+    height: 140
+  }
+});
+
+function openInNewTab(url) {
+  const win = window.open(url, "_blank");
+  win.focus();
+}
+
+export const Article = props => {
+  const classes = useStyles();
+  const [setStyles] = useState(classes.card);
+
+  const clickHandler = () => {
+    setStyles([classes.card, stylesS.clicked].join(" "));
+  };
+  return (
+    <Container fluid="md" maxWidth="md">
+      <Card className="shadow-lg p-3 mb-5 bg-white rounded" onClick={clickHandler}>
+        <CardActionArea onClick={() => openInNewTab(props.webUrl)}>
+          {props.img ? (
+            <CardMedia
+              className={classes.media}
+              image={props.img}
+              title="article thumbnail"
+            />
+          ) : (
+            <CardMedia
+              className={classes.media}
+              image={img}
+              title="article thumbnail"
+            />
+          )}
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h5">
+              {props.headline}
+            </Typography>
+            <Typography gutterBottom variant="body2" component="p">
+              By {props.author}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.body}
+            </Typography>
+            <br />
+            <Typography variant="caption" display="block" gutterBottom>
+              {props.section}
+            </Typography>
+            <Typography variant="caption" display="block" gutterBottom className={classes.date}>
+              Date Published: {props.date.split("T")[0]}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button
+            variant="outlined"
+            style={{
+            marginBottom:0,
+            marginLeft:"auto", marginRight:"auto", backgroundColor:"lightgray", fontFamily: 'Open Sans'}}
+            href={props.webUrl}
+            target="_blank"
+            size="small"
+          >
+            View Article
+          </Button>
+        </CardActions>
+      </Card>
+    </Container>
+  );
+};
