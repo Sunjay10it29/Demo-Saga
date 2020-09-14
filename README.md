@@ -1,12 +1,10 @@
 
-# SkillTest
+# Demo-Saga
 
-# PeaksSoftware Skill Test Solution
+# Demo Solution
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-This test has been solved for skill test purpose only.
 
   - While running project please follow the steps below.
   
@@ -19,20 +17,20 @@ This test has been solved for skill test purpose only.
 # Follow the steps to install and run server and client project
 Steps:
 ```sh
-$ cd skillTest 
+$ cd Demo-Saga 
 $ Yarn install / npm install
 $ yarn run dev / npm run dev (it will run both server and client)
 ```
 ```sh
 -Server
-$ cd skillTest/server 
+$ cd Demo-Saga/server 
 $ Yarn install / npm install
-$ yarn start / npm start 
+$ Yarn start / npm start 
 
 -Client
-$ cd skillTest/client 
+$ cd Demo-Saga/client 
 $ Yarn install / npm install
-$ yarn start / npm start 
+$ Yarn start / npm start 
 ```
 ## Paths
 | Ports | Path | Note |
