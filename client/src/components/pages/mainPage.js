@@ -21,11 +21,12 @@ const MainPage = props => {
   useEffect(() => {
     (async () => {
       try {
-        props.getArticles();
+        await props.getArticles();
       } catch (e) {
         console.error(e);
       }
     })();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const topicHandler = event => {
@@ -48,30 +49,32 @@ const MainPage = props => {
   const indexOfFirstPost = indexOfLastPost - articlesPerPage;
   const currentPost = props.articles ? props.articles.slice(indexOfFirstPost, indexOfLastPost) : null
 
-  const articles = props.articles ? currentPost.map(article => {
-    let author = null;
-    let authorURL = null;
-    if (article.tags[0]) {
-      author = article.tags[0].webTitle;
-      authorURL = article.tags[0].webUrl;
-    }
-    let keys = '';
+  const articles = props.articles ? currentPost.map((article) => {
+      let author = null;
+      let authorURL = null;
+      if (article.tags[0]) {
+        author = article.tags[0].webTitle;
+        authorURL = article.tags[0].webUrl;
+      }
+      let keys = '';
+  
+      if (article.webTitle.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
+        article.sectionId.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
+        article.sectionName.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
+        article.fields.headline.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
+        article.fields.trailText.toLowerCase().indexOf(query.toLowerCase()) === -1)
+        return console.log(article);
+  
+      if (article.webTitle.toLowerCase().indexOf(query.toLowerCase()) === -1) {
+        var m = article.sectionName.toLowerCase().split(' ');
+        for (var i in m)
+          if (m[i].indexOf(query.toLowerCase()) !== -1)
+            keys = m[i];
+      } else {
+        keys = article.webTitle.toLowerCase();
+      }
 
-    if (article.webTitle.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
-      article.sectionId.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
-      article.sectionName.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
-      article.fields.headline.toLowerCase().indexOf(query.toLowerCase()) === -1 &&
-      article.fields.trailText.toLowerCase().indexOf(query.toLowerCase()) === -1)
-      return;
-
-    if (article.webTitle.toLowerCase().indexOf(query.toLowerCase()) === -1) {
-      var m = article.sectionName.toLowerCase().split(' ');
-      for (var i in m)
-        if (m[i].indexOf(query.toLowerCase()) !== -1)
-          keys = m[i];
-    } else {
-      keys = article.webTitle.toLowerCase();
-    }
+   
 
     return (
 

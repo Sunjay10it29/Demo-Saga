@@ -47,3 +47,80 @@ $ Yarn start / npm start
 
 ###### Developer Sunjay Kumar (Sunny) 
 Contact#: +6694 887 7955
+```
+Demo-Saga
+├─ .gitignore
+├─ .vscode
+│  └─ launch.json
+├─ README.md
+├─ bin
+│  └─ www
+├─ client
+│  ├─ build
+│  │  ├─ favicon.ico
+│  │  ├─ logo192.png
+│  │  ├─ logo512.png
+│  │  ├─ manifest.json
+│  │  └─ robots.txt
+│  ├─ package.json
+│  ├─ public
+│  │  ├─ favicon.ico
+│  │  ├─ index.html
+│  │  ├─ logo192.png
+│  │  ├─ logo512.png
+│  │  ├─ manifest.json
+│  │  └─ robots.txt
+│  ├─ src
+│  │  ├─ App.css
+│  │  ├─ App.js
+│  │  ├─ App.test.js
+│  │  ├─ api
+│  │  │  ├─ apiCall.js
+│  │  │  └─ articleApi.js
+│  │  ├─ assets
+│  │  │  ├─ No_image_3x4.png
+│  │  │  └─ logo.png
+│  │  ├─ components
+│  │  │  ├─ alertBox.js
+│  │  │  ├─ article
+│  │  │  │  ├─ article.js
+│  │  │  │  └─ article.module.css
+│  │  │  ├─ form
+│  │  │  │  └─ form.js
+│  │  │  ├─ pages
+│  │  │  │  └─ mainPage.js
+│  │  │  └─ pagination
+│  │  │     └─ Pagination.js
+│  │  ├─ config.js
+│  │  ├─ index.css
+│  │  ├─ index.js
+│  │  ├─ logo.svg
+│  │  ├─ main.css
+│  │  ├─ serviceWorker.js
+│  │  ├─ setupTests.js
+│  │  └─ store
+│  │     ├─ actions
+│  │     │  └─ articleActions.js
+│  │     ├─ reducers
+│  │     │  ├─ index.js
+│  │     │  └─ reducer.js
+│  │     └─ sagas
+│  │        ├─ articleSagas.js
+│  │        └─ index.js
+│  └─ yarn.lock
+├─ package.json
+├─ server
+│  ├─ app.js
+│  ├─ config.js
+│  ├─ public
+│  │  └─ stylesheets
+│  │     └─ style.css
+│  ├─ routes
+│  │  └─ index.js
+│  └─ views
+│     ├─ error.jade
+│     ├─ index.jade
+│     └─ layout.jade
+└─ yarn.lock
+
+```
